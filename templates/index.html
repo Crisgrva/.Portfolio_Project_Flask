@@ -1,0 +1,52 @@
+{% extends 'layout.html'%}
+{% block content %}
+<!-- box-intro -->
+<section class="box-intro">
+    <div class="table-cell">
+        <h1 class="box-headline letters rotate-2">
+            <span class="box-words-wrapper">
+                <b class="is-visible">design.</b>
+                <b>&nbsp;coding.</b>
+                <b>graphic.</b>
+            </span>
+        </h1>
+        <h5>everything you need to build your personal portfolio</h5>
+    </div>
+
+    <div class="mouse">
+        <div class="scroll"></div>
+    </div>
+</section>
+<!-- end box-intro -->
+</div>
+
+<!-- portfolio div -->
+<div class="portfolio-div">
+    <div class="portfolio">
+        <div class="no-padding portfolio_container justify-content-center">
+            <!-- single work -->
+            {% for project in data[0] %}
+            <div class="col-md-3 col-sm-6  fashion logo">
+                <a href="{{ project.html_url }}" class="portfolio_item" target="_blank">
+                    <img src="{{ url_for('static', filename='img/portfolio/01.jpg')}}" alt="image"
+                        class="img-responsive" />
+                    <div class="portfolio_item_hover">
+                        <div class="portfolio-border clearfix">
+                            <div class="item_info">
+                                <span>{{ project.name }}</span>
+                                <em>View on GitHub</em>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+            <!-- end single work -->
+        </div>
+        <!-- end portfolio_container -->
+    </div>
+    <!-- portfolio -->
+</div>
+<!-- end portfolio div -->
+
+{% endblock %}
